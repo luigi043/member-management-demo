@@ -35,3 +35,22 @@ export function createMember(data) {
   save(members);
   return member;
 }
+
+export function updateMember(id, updates) {
+  const members = load();
+  const index = members.findIndex((m) => m.id === id);
+  if (index === -1) throw new Error('Member not found.');
+
+  const merged = { ...members[index], ...updates };
+  const { valid, errors } = validateMember(merged);
+  if (!valid) throw new Error(Object.values(errors).join(' '));
+
+  members[index] = {
+    ...merged,
+    name: merged.name.trim(),
+    email: merged.email.trim(),
+    updatedAt: new Date().toISOString(),
+  };
+  save(members);
+  return members[index];
+}
