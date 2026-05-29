@@ -3,6 +3,7 @@ import {
   getMembers,
   createMember,
   updateMember,
+  deleteMember,
 } from '../src/services/memberService.js';
 import { clear } from '../src/utils/storage.js';
 
@@ -18,8 +19,9 @@ describe('memberService', () => {
 
   it('rejects duplicate emails', () => {
     createMember({ name: 'Grace Hopper', email: 'grace@example.com' });
-    expect(() => createMember({ name: 'Grace H', email: 'GRACE@example.com' }))
-      .toThrow(/already exists/i);
+    expect(() =>
+      createMember({ name: 'Grace H', email: 'GRACE@example.com' })
+    ).toThrow(/already exists/i);
   });
 
   it('rejects invalid data on create', () => {
@@ -36,5 +38,11 @@ describe('memberService', () => {
 
   it('throws when updating a missing member', () => {
     expect(() => updateMember('nope', { name: 'X' })).toThrow(/not found/i);
+  });
+
+  it('deletes a member', () => {
+    const m = createMember({ name: 'Linus', email: 'linus@example.com' });
+    expect(deleteMember(m.id)).toBe(true);
+    expect(getMembers()).toHaveLength(0);
   });
 });
