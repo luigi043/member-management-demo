@@ -1,5 +1,5 @@
 // Pure validation helpers for member data (no React/DOM, fully testable).
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const EMAIL_PATTERN = /^\S+@\S+\.\S+$/;
 
 export function validateMember(member = {}) {
   const errors = {};
