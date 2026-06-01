@@ -1,0 +1,35 @@
+%% Git branching model used in this project (GitHub Flow + a develop integration branch).
+%% Render at https://mermaid.live or any Mermaid-enabled Markdown viewer.
+gitGraph
+   commit id: "chore: initial setup"
+   branch develop
+   checkout develop
+   commit id: "chore: dev baseline"
+   branch feature/member-registration
+   checkout feature/member-registration
+   commit id: "feat: form + validation"
+   commit id: "test: registration"
+   checkout develop
+   merge feature/member-registration tag: "PR #5"
+   branch feature/member-search
+   checkout feature/member-search
+   commit id: "feat: search filter"
+   checkout develop
+   merge feature/member-search tag: "PR #6"
+   branch feature/member-update
+   checkout feature/member-update
+   commit id: "feat: edit member"
+   checkout develop
+   merge feature/member-update tag: "PR #7"
+   branch feature/member-delete
+   checkout feature/member-delete
+   commit id: "feat: delete + confirm"
+   checkout develop
+   merge feature/member-delete tag: "PR #8"
+   branch bugfix/form-validation
+   checkout bugfix/form-validation
+   commit id: "fix: stricter email"
+   checkout develop
+   merge bugfix/form-validation tag: "PR #9 (conflict)"
+   checkout main
+   merge develop tag: "v1.0.0"

@@ -1,0 +1,22 @@
+%% Application layering: UI components -> service layer -> storage.
+flowchart LR
+    subgraph UI[React UI]
+      P[MembersPage] --> F[MemberForm]
+      P --> L[MemberList]
+      L --> I[MemberItem]
+      P --> S[SearchBar]
+      P --> C[ConfirmDialog]
+    end
+    subgraph Logic[Business logic]
+      SVC[memberService]
+      VAL[validation]
+      SR[search]
+    end
+    subgraph Data[Persistence]
+      ST[storage<br/>localStorage + memory fallback]
+    end
+    P --> SVC
+    F --> VAL
+    P --> SR
+    SVC --> VAL
+    SVC --> ST

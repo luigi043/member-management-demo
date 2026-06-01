@@ -1,0 +1,18 @@
+%% End-to-end feature lifecycle, from issue to merged code.
+%% Render at https://mermaid.live or any Mermaid-enabled Markdown viewer.
+flowchart TD
+    A[Create GitHub Issue] --> B[Create feature branch<br/>feature/*]
+    B --> C[Develop feature]
+    C --> D[Commit<br/>Conventional Commits]
+    D --> E[Push branch to origin]
+    E --> F[Open Pull Request]
+    F --> G[CI runs:<br/>lint + test + build]
+    G --> H{Code review}
+    H -- Changes requested --> I[Address feedback]
+    I --> D
+    H -- Approved --> J[Merge to develop<br/>--no-ff]
+    J --> K[Delete feature branch]
+    K --> L{Release ready?}
+    L -- No --> A
+    L -- Yes --> M[Merge develop to main<br/>tag vX.Y.Z]
+    M --> N[Deploy]
