@@ -103,6 +103,103 @@ and [`docs/workflow/git-workflow.md`](docs/workflow/git-workflow.md).
 `docs:`, `test:`, `refactor:`, `chore:`. See
 [`docs/workflow/commit-conventions.md`](docs/workflow/commit-conventions.md).
 
+## Diagrams
+
+The diagrams below render automatically on GitHub. Source files live in
+[`docs/diagrams/`](docs/diagrams/) and can also be viewed at
+[mermaid.live](https://mermaid.live).
+
+### Branching model
+
+[`docs/diagrams/git-flow.mmd`](docs/diagrams/git-flow.mmd)
+
+```mermaid
+gitGraph
+   commit id: "chore: initial setup"
+   branch develop
+   checkout develop
+   commit id: "chore: dev baseline"
+   branch feature/member-registration
+   checkout feature/member-registration
+   commit id: "feat: form + validation"
+   commit id: "test: registration"
+   checkout develop
+   merge feature/member-registration tag: "PR #5"
+   branch feature/member-search
+   checkout feature/member-search
+   commit id: "feat: search filter"
+   checkout develop
+   merge feature/member-search tag: "PR #6"
+   branch feature/member-update
+   checkout feature/member-update
+   commit id: "feat: edit member"
+   checkout develop
+   merge feature/member-update tag: "PR #7"
+   branch feature/member-delete
+   checkout feature/member-delete
+   commit id: "feat: delete + confirm"
+   checkout develop
+   merge feature/member-delete tag: "PR #8"
+   branch bugfix/form-validation
+   checkout bugfix/form-validation
+   commit id: "fix: stricter email"
+   checkout develop
+   merge bugfix/form-validation tag: "PR #9 (conflict)"
+   checkout main
+   merge develop tag: "v1.0.0"
+```
+
+### Feature lifecycle
+
+[`docs/diagrams/lifecycle.mmd`](docs/diagrams/lifecycle.mmd)
+
+```mermaid
+flowchart TD
+    A[Create GitHub Issue] --> B[Create feature branch<br/>feature/*]
+    B --> C[Develop feature]
+    C --> D[Commit<br/>Conventional Commits]
+    D --> E[Push branch to origin]
+    E --> F[Open Pull Request]
+    F --> G[CI runs:<br/>lint + test + build]
+    G --> H{Code review}
+    H -- Changes requested --> I[Address feedback]
+    I --> D
+    H -- Approved --> J[Merge to develop<br/>--no-ff]
+    J --> K[Delete feature branch]
+    K --> L{Release ready?}
+    L -- No --> A
+    L -- Yes --> M[Merge develop to main<br/>tag vX.Y.Z]
+    M --> N[Deploy]
+```
+
+### Application architecture
+
+[`docs/diagrams/architecture.mmd`](docs/diagrams/architecture.mmd)
+
+```mermaid
+flowchart LR
+    subgraph UI[React UI]
+      P[MembersPage] --> F[MemberForm]
+      P --> L[MemberList]
+      L --> I[MemberItem]
+      P --> S[SearchBar]
+      P --> C[ConfirmDialog]
+    end
+    subgraph Logic[Business logic]
+      SVC[memberService]
+      VAL[validation]
+      SR[search]
+    end
+    subgraph Data[Persistence]
+      ST[storage<br/>localStorage + memory fallback]
+    end
+    P --> SVC
+    F --> VAL
+    P --> SR
+    SVC --> VAL
+    SVC --> ST
+```
+
 ## Reproducing the Git History
 
 The full branch/merge history can be regenerated from scratch on any machine:
