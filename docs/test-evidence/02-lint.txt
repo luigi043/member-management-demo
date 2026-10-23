@@ -1,0 +1,7 @@
+$ npm.cmd run lint
+
+> member-management-demo@1.0.0 lint
+> eslint . --ext .js,.jsx
+
+
+Exit code: 0

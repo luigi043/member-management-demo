@@ -21,3 +21,6 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# Document layout QA intermediates
+docs/test-evidence/rendered/

@@ -46,7 +46,7 @@ lifecycle diagrams.
 ```bash
 git clone https://github.com/luigi043/member-management-demo.git
 cd member-management-demo
-npm install
+npm ci
 ```
 
 ## Usage
@@ -202,14 +202,14 @@ flowchart LR
 
 ## Reproducing the Git History
 
-The full branch/merge history can be regenerated from scratch on any machine:
+Run a simulated branch/merge rehearsal in a new disposable directory (Git Bash on Windows, Bash on Linux/macOS):
 
 ```bash
 bash scripts/build-git-history.sh
-git log --oneline --graph --all
+git -C <printed-rehearsal-directory> log --oneline --graph --all
 ```
 
-This creates `main` + `develop` + feature/bugfix branches, conventional commits
+The script copies source assets, excludes Git metadata and dependencies, and never modifies this repository or configures a remote. An explicit output path must not exist. This creates `main` + `develop` + feature/bugfix branches, conventional commits
 from a simulated three-person team, `--no-ff` merges for every PR, a real merge
 **conflict that is resolved**, and a tagged `v1.0.0` release.
 
@@ -226,3 +226,17 @@ Simulated team for this demonstration:
 ## License
 
 [MIT](LICENSE).
+
+## Classroom walkthrough and current verification
+
+See [the reproducible walkthrough](docs/workflow/classroom-walkthrough.md) for
+setup, acceptance checks, history inspection, and a safe conflict rehearsal.
+The team names, PR numbers and review conversations in the original records are
+**simulated course evidence**, not independently verified hosted GitHub reviews.
+The existing commit graph is real local Git history. GitHub Actions reports checks;
+branch protection must be configured separately to enforce required checks.
+
+Current work is on `fix/safe-workflow-rehearsal`, based on `develop`.
+See [the local review](docs/workflow/pull-requests/local-completion-review.md).
+
+Test output images and the Word report: [Demo5 Test Evidence](docs/test-evidence/Demo5-Test-Evidence.docx). Original PNG and TXT records are alongside the document.

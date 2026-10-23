@@ -1,0 +1,16 @@
+$ npm.cmd run build
+
+> member-management-demo@1.0.0 build
+> vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 41 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.41 kB │ gzip:  0.27 kB
+dist/assets/index-BAH-vNkF.css    2.20 kB │ gzip:  0.86 kB
+dist/assets/index-Dr0fcPUR.js   147.93 kB │ gzip: 47.74 kB
+✓ built in 5.00s
+
+Exit code: 0

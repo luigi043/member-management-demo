@@ -9,22 +9,23 @@
 #   - a REAL merge conflict that is resolved
 #   - a tagged v1.0.0 release
 #
-# It is idempotent: it rebuilds .git each run. It does NOT push. The origin
-# remote is re-added at the end so you can push manually. No external author
-# names or generated tooling files are introduced.
-#
-# Usage (from the repo root):
-#     bash scripts/build-git-history.sh
-#     git log --oneline --graph --all --decorate
-#     # then, to update GitHub (replaces the old single commit):
-#     git push --force origin main develop --tags
-# ===========================================================================
+# Runs only in a new disposable directory. Existing history is never removed.
+# Usage: bash scripts/build-git-history.sh [new-output-directory]
+# No remote is configured and nothing is pushed.
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
-ROOT="$(pwd)"
-REMOTE_URL="https://github.com/luigi043/member-management-demo.git"
-echo "Building git history in: $ROOT"
+SOURCE="$(cd "$(dirname "$0")/.." && pwd)"
+if [ "$#" -gt 1 ]; then echo "Usage: $0 [new-output-directory]" >&2; exit 2; fi
+if [ "$#" -eq 1 ]; then
+  mkdir -- "$1" || { echo "Output must not already exist." >&2; exit 1; }
+  ROOT="$(cd "$1" && pwd)"
+else
+  ROOT="$(mktemp -d "${TMPDIR:-/tmp}/member-workflow.XXXXXX")"
+fi
+# Copy source assets only; never copy Git metadata, dependencies or secrets.
+(cd "$SOURCE" && tar --exclude='./.git' --exclude='./node_modules' --exclude='./dist' --exclude='./coverage' --exclude='./.env*' -cf - .) | (cd "$ROOT" && tar -xf -)
+cd "$ROOT"
+echo "Building simulated history in: $ROOT"
 
 # --- Team -------------------------------------------------------------------
 MAYA="Maya Santos";   MAYA_E="maya.santos@example.com"     # lead / reviewer
@@ -56,8 +57,9 @@ save src/pages/MembersPage.jsx
 save tests/memberService.test.js
 
 # --- Fresh repo -------------------------------------------------------------
-rm -rf .git
+# ROOT is a newly created directory with no existing Git metadata.
 git init -q -b main
+git config core.autocrlf false
 git config user.name "$MAYA"
 git config user.email "$MAYA_E"
 
@@ -586,7 +588,11 @@ set +e
 GIT_AUTHOR_NAME="$MAYA" GIT_AUTHOR_EMAIL="$MAYA_E" GIT_AUTHOR_DATE="2026-05-31T10:00:00" \
 GIT_COMMITTER_NAME="$MAYA" GIT_COMMITTER_EMAIL="$MAYA_E" GIT_COMMITTER_DATE="2026-05-31T10:00:00" \
   git merge --no-ff bugfix/form-validation -m "merge attempt" >/dev/null 2>&1
+merge_status=$?
 set -e
+if [ "$merge_status" -ne 1 ] || [ -z "$(git diff --name-only --diff-filter=U)" ]; then
+  echo "Expected a merge conflict; stopping rehearsal." >&2; exit 1
+fi
 
 # Resolve by keeping the stricter rule (the final validation.js).
 restore src/utils/validation.js
@@ -605,7 +611,7 @@ git branch -q -d bugfix/form-validation
 # ===========================================================================
 # Documentation commits on develop
 # ===========================================================================
-git add CONTRIBUTING.md LICENSE .github docs scripts
+git add CONTRIBUTING.md LICENSE .github docs scripts .gitattributes .eslintignore package-lock.json tests/MembersPage.test.jsx
 cmt "$MAYA" "$MAYA_E" "2026-06-01T10:00:00" "docs: add workflow docs, diagrams, templates, CI and license
 
 - Branching strategy, commit conventions, step-by-step git workflow
@@ -631,8 +637,8 @@ mrg "$MAYA" "$MAYA_E" "2026-06-03T09:00:00" develop \
 GIT_COMMITTER_DATE="2026-06-03T09:00:00" \
   git tag -a v1.0.0 -m "v1.0.0 — full member CRUD delivered via the team workflow"
 
-# Re-add the GitHub remote (history rebuild removed it). Does NOT push.
-git remote add origin "$REMOTE_URL" 2>/dev/null || git remote set-url origin "$REMOTE_URL"
+# Keep the rehearsal disconnected from hosted repositories.
+# No remote: the rehearsal remains local.
 
 git checkout -q develop
 rm -rf "$TMP"
@@ -644,5 +650,5 @@ echo
 echo "Commits per author:"
 git --no-pager shortlog -sn --all
 echo
-echo "To update GitHub (replaces the old single commit):"
-echo "    git push --force origin main develop --tags"
+echo "Rehearsal directory: $ROOT"
+echo "Inspect with: git -C \"$ROOT\" log --oneline --graph --all"

@@ -1,0 +1,111 @@
+Building simulated history in: /tmp/member-workflow.6l51uj
+warning: in the working copy of '.eslintrc.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/App.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/MembersPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/setup.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vite.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/MembersPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/MemberForm.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/MemberItem.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/MemberList.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/services/memberService.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/utils/storage.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/utils/validation.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/memberService.test.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/validation.test.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/MembersPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/SearchBar.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/utils/search.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/search.test.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/utils/search.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/MembersPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/services/memberService.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/memberService.test.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/MembersPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/services/memberService.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ConfirmDialog.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/memberService.test.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/utils/validation.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/utils/validation.js', LF will be replaced by CRLF the next time Git touches it
+>> The next merge is expected to CONFLICT on validation.js (intentional):
+warning: in the working copy of 'src/utils/validation.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.eslintignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.gitattributes', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.github/ISSUE_TEMPLATE/bug_report.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.github/ISSUE_TEMPLATE/feature_request.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.github/pull_request_template.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.github/workflows/ci.yml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'CONTRIBUTING.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'LICENSE', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/diagrams/architecture.mmd', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/diagrams/git-flow.mmd', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/diagrams/lifecycle.mmd', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/branching-strategy.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/classroom-walkthrough.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/code-review-checklist.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/commit-conventions.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/conflict-resolution.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/git-workflow.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/issues.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/project-board.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/pull-requests/PR-05-member-registration.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/pull-requests/PR-06-member-search.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/pull-requests/PR-07-member-update.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/pull-requests/PR-08-member-delete.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/pull-requests/PR-09-bugfix-validation.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/pull-requests/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/workflow/pull-requests/local-completion-review.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package-lock.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/MembersPage.test.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+
+Done. History graph:
+*   9ae2483 (tag: v1.0.0, main) Release v1.0.0: member management with full CRUD workflow
+|\  
+| * a9fb0c2 (HEAD -> develop) docs: expand README with full workflow guide
+| * 9691dc3 docs: add workflow docs, diagrams, templates, CI and license
+| *   8162e7a Merge pull request #9 from bugfix/form-validation
+| |\  
+| | * 40ef3b4 fix: tighten email validation rule (Closes #5)
+| * |   e181d6c Merge branch 'hotfix/email-trim' into develop
+| |\ \  
+| | |/  
+| |/|   
+| | * 6cc61af refactor: simplify email validation pattern
+| |/  
+| *   6bea2f1 Merge pull request #8 from feature/member-delete
+| |\  
+| | * c6ddacd test: add delete member test
+| | * 929324a feat: add delete member with confirmation dialog
+| |/  
+| *   87b26bf Merge pull request #7 from feature/member-update
+| |\  
+| | * 86f8746 test: add update member tests
+| | * 02756fd feat: add edit member capability
+| |/  
+| *   c6aa166 Merge pull request #6 from feature/member-search
+| |\  
+| | * d398994 fix: skip undefined fields in search matcher (review feedback)
+| | * c199fa3 test: add search filter tests
+| | * c8afea0 feat: implement member search filter
+| |/  
+| * d48ad90 Merge pull request #5 from feature/member-registration
+|/| 
+| * 2957f34 test: add validation and service unit tests
+| * 79cd2ea feat: add member registration form with validation
+|/  
+* ef3f28f chore: initialize project with Vite + React
+
+Commits per author:
+    10	Maya Santos
+     6	Noah Almeida
+     5	Liam Costa
+
+Rehearsal directory: /tmp/member-workflow.6l51uj
+Inspect with: git -C "/tmp/member-workflow.6l51uj" log --oneline --graph --all

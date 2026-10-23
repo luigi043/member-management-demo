@@ -1,0 +1,37 @@
+$ npm.cmd test -- --reporter=verbose
+
+> member-management-demo@1.0.0 test
+> vitest run --reporter=verbose
+
+
+ RUN  v2.1.9 C:/Users/cluiz/OneDrive - Instituto Politecnico de Beja/Documents/2026/Demo Project Ideas — Introduction to Software Engineering/demo5-version-control-workflow/member-management-demo
+
+ ✓ tests/search.test.js > searchMembers > returns all members for a blank query
+ ✓ tests/search.test.js > searchMembers > matches on name (case-insensitive)
+ ✓ tests/search.test.js > searchMembers > matches on email fragment
+ ✓ tests/search.test.js > searchMembers > matches on role
+ ✓ tests/search.test.js > searchMembers > returns empty array when nothing matches
+ ✓ tests/validation.test.js > validateMember > accepts a well-formed member
+ ✓ tests/validation.test.js > validateMember > requires a name
+ ✓ tests/validation.test.js > validateMember > rejects a name shorter than 2 characters
+ ✓ tests/validation.test.js > validateMember > rejects an invalid email
+ ✓ tests/validation.test.js > validateMember > trims surrounding whitespace before validating
+ ✓ tests/memberService.test.js > memberService > creates a member with an id and timestamp
+ ✓ tests/memberService.test.js > memberService > rejects duplicate emails
+ ✓ tests/memberService.test.js > memberService > rejects invalid data on create
+ ✓ tests/memberService.test.js > memberService > updates an existing member
+ ✓ tests/memberService.test.js > memberService > throws when updating a missing member
+ ✓ tests/memberService.test.js > memberService > deletes a member
+ ✓ tests/MembersPage.test.jsx > keeps rejected duplicate input and clears input after a successful create
+
+ Test Files  4 passed (4)
+      Tests  17 passed (17)
+   Start at  17:19:05
+   Duration  7.17s (transform 329ms, setup 3.09s, collect 1.15s, tests 235ms, environment 16.02s, prepare 2.43s)
+
+(node:15724) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20888) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+Exit code: 0
