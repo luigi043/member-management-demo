@@ -13,7 +13,10 @@ let memoryStore = null;
 
 function hasLocalStorage() {
   try {
-    return typeof localStorage !== 'undefined';
+    return typeof localStorage !== 'undefined'
+      && typeof localStorage.getItem === 'function'
+      && typeof localStorage.setItem === 'function'
+      && typeof localStorage.removeItem === 'function';
   } catch {
     return false;
   }

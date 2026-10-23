@@ -31,8 +31,8 @@ export default function MemberForm({ initial = null, onSubmit, onCancel }) {
       setErrors(fieldErrors);
       return;
     }
-    onSubmit(form);
-    if (!initial) setForm(EMPTY); // reset only after a create
+    const succeeded = onSubmit(form);
+    if (!initial && succeeded !== false) setForm(EMPTY);
   }
 
   return (

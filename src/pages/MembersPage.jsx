@@ -38,8 +38,10 @@ export default function MembersPage() {
       createMember(data);
       setError('');
       refresh();
+      return true;
     } catch (e) {
       setError(e.message);
+      return false;
     }
   }
 
@@ -49,8 +51,10 @@ export default function MembersPage() {
       setEditing(null);
       setError('');
       refresh();
+      return true;
     } catch (e) {
       setError(e.message);
+      return false;
     }
   }
 
